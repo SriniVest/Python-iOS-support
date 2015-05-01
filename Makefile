@@ -292,7 +292,7 @@ build/python/ios-arm64/Python: build build/Python-$(PYTHON_VERSION)/host/python.
 	# Configure and build iPhone library
 	cd build/Python-$(PYTHON_VERSION)/ios-arm64 && ./configure CC="$(IPHONE_ARMV7_CC)" LD="$(IPHONE_ARM64_LD)" CFLAGS="$(IPHONE_ARM64_CFLAGS) -I../../../dist/ffi.framework/Headers" LDFLAGS="$(IPHONE_ARM64_LDFLAGS) -L../../../dist/ffi.framework/ -lsqlite3 -undefined dynamic_lookup" --without-pymalloc --disable-toolbox-glue --host=arm64-apple-darwin --prefix=$(PROJECTDIR)/build/python/ios-arm64 --without-doc-strings
 	cd build/Python-$(PYTHON_VERSION)/ios-arm64 && patch -p1 < ../../../patch/Python/ctypes_duplicate.patch
-	cd build/Python-$(PYTHON_VERSION)/ios-arm64 && patch -p1 < ../../../patch/Python/pyconfig_arm64.patch
+	cd build/Python-$(PYTHON_VERSION)/ios-arm64 && patch -p1 < ../../../patch/Python/pyconfig64.patch
 	mkdir -p build/python/ios-arm64
 	cd build/Python-$(PYTHON_VERSION)/ios-arm64 && cp ../host/python.exe hostpython
 	cd build/Python-$(PYTHON_VERSION)/ios-arm64 && make altbininstall libinstall inclinstall libainstall HOSTPYTHON=./hostpython CROSS_COMPILE_TARGET=yes
